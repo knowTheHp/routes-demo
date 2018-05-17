@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form id="editForm" #editForm="ngForm">
+        <div *ngIf="allowEdit==1 else elseData">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <!-- <input type="text" id="name" class="form-control" [value]="user.name" #nameInput> -->
+            <input type="text" id="name" class="form-control" [value]="user.name" [(ngModel)]="user.name" name="name">
+          </div>
+          <div class="form-group">
+            <label for="name">Email</label>
+            <input type="text" id="email" class="form-control" [value]="user.email" #emailInput>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="button" (click)="submit()">Submit</button>
+          </div>
+        </div>
+      </form>
+      <ng-template #elseData>
+        <p>You are not allowed to make changes.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
